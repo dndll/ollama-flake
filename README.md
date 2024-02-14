@@ -65,26 +65,26 @@ where `version` is any branch or tag.
 The version branches will only be updated in a backward compatible way, no breaking changes
 (see [semantic versioning](https://semver.org)).
 
-Append `/1` to follow branch `1` which tracks version 1.y.z of the repo:
+Append `/2` to follow branch `2` which tracks version 2.y.z of the repo:
 ``` shell
-nix profile install github:abysssol/ollama-flake/1
+nix profile install github:abysssol/ollama-flake/2
 ```
 
 Use an unchanging tagged version:
 ``` shell
-nix profile install github:abysssol/ollama-flake/1.3.0
+nix profile install github:abysssol/ollama-flake/2.0.1
 ```
 
 Alternate packages can be specified as usual.
-From version 1, install the `cpu` package, which is built to only run on CPU:
+From version 2, install the `cpu` package, which is built to only run on CPU:
 ``` shell
-nix profile install github:abysssol/ollama-flake/1#cpu
+nix profile install github:abysssol/ollama-flake/2#cpu
 ```
 
 Other versions may be available:
 ``` shell
-nix profile install github:abysssol/ollama-flake/0
-nix profile install github:abysssol/ollama-flake/1.1.0
+nix profile install github:abysssol/ollama-flake/1
+nix profile install github:abysssol/ollama-flake/1.3.0
 ```
 
 ### Backend
