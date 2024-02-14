@@ -2,16 +2,16 @@
   "nodes": {
     "nixpkgs": {
       "locked": {
-        "lastModified": 1706683685,
-        "narHash": "sha256-FtPPshEpxH/ewBOsdKBNhlsL2MLEFv1hEnQ19f/bFsQ=",
-        "owner": "NixOS",
+        "lastModified": 1707932507,
+        "narHash": "sha256-YtwQaVX7Gpgzk4GadGwNjcDUVKha++Yn7Xw/gMAmjWI=",
+        "owner": "abysssol",
         "repo": "nixpkgs",
-        "rev": "5ad9903c16126a7d949101687af0aa589b1d7d3d",
+        "rev": "1becaad224e7e5997471ec15185b208d4fa4a22c",
         "type": "github"
       },
       "original": {
-        "owner": "NixOS",
-        "ref": "nixpkgs-unstable",
+        "owner": "abysssol",
+        "ref": "update-ollama-0.1.24",
         "repo": "nixpkgs",
         "type": "github"
       }

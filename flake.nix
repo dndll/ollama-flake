@@ -1,9 +1,9 @@
 {
   description =
-    "ollama: Get up and running with Llama 2, Mistral, and other large language models locally";
+    "Get up and running with Llama 2, Mistral, and other large language models locally";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    nixpkgs.url = "github:abysssol/nixpkgs/update-ollama-0.1.24";
     nixpkgs-unfree = {
       url = "github:numtide/nixpkgs-unfree";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -20,19 +20,17 @@
             nixpkgs.legacyPackages.${system}
             nixpkgs-unfree.legacyPackages.${system});
 
-      buildOllama = pkgs: overrides: pkgs.callPackage ./build-ollama.nix overrides;
-
       unixPackages = (forAllSystems lib.platforms.unix (pkgs: _: {
-        default = buildOllama pkgs { };
-        cpu = buildOllama pkgs { };
+        default = pkgs.ollama;
+        cpu = pkgs.ollama;
       }));
 
       linuxPackages = (forAllSystems lib.platforms.linux (pkgs: pkgsUnfree: {
-        default = buildOllama pkgsUnfree { enableRocm = true; enableCuda = true; };
-        gpu = buildOllama pkgsUnfree { enableRocm = true; enableCuda = true; };
-        rocm = buildOllama pkgs { enableRocm = true; };
-        cuda = buildOllama pkgsUnfree { enableCuda = true; };
-        cpu = buildOllama pkgs { };
+        default = pkgsUnfree.ollama.override { enableRocm = true; enableCuda = true; };
+        gpu = pkgsUnfree.ollama.override { enableRocm = true; enableCuda = true; };
+        rocm = pkgs.ollama.override { enableRocm = true; };
+        cuda = pkgsUnfree.ollama.override { enableCuda = true; };
+        cpu = pkgs.ollama;
       }));
     in
     {
